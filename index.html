@@ -465,6 +465,15 @@
       transform: translateY(-5px);
       box-shadow: 0 12px 32px rgba(232, 139, 127, 0.25);
     }
+    .account-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      background: transparent;
+    }
     .account-platform {
       position: absolute;
       top: 0;
@@ -1579,7 +1588,8 @@
       </h2>
       <div class="accounts-grid">
         <!-- 抖音1：豆本豆豆 -->
-        <a class="account-card account-douyin" href="https://www.douyin.com/user/MS4wLjABAAAADw6BtAe3fQpphB5Ms7jDhyISfDV9McVSVGWsLWEpAEsSNYzbIxv_8Et6C-EO67w_" target="_blank" rel="noopener noreferrer">
+        <div class="account-card account-douyin">
+          <a class="account-link" href="https://www.douyin.com/user/MS4wLjABAAAADw6BtAe3fQpphB5Ms7jDhyISfDV9McVSVGWsLWEpAEsSNYzbIxv_8Et6C-EO67w_" target="_blank" rel="noopener noreferrer"></a>
           <div class="account-platform">抖音</div>
           <div class="account-header">
             <img class="account-avatar" src="https://aka.doubaocdn.com/s/hHR4sqXV1v" alt="豆本豆豆头像" />
@@ -1597,10 +1607,11 @@
             <img src="https://aka.doubaocdn.com/s/NxlHqeJIAN" alt="作品" loading="lazy" />
           </div>
           <div class="account-btn">前往抖音主页 →</div>
-        </a>
+        </div>
 
         <!-- 抖音2：Balio_ -->
-        <a class="account-card account-douyin" href="https://www.douyin.com/user/MS4wLjABAAAAFZsbce8DIQACzZRGW6m5Wi5ExGPeHniIvbDNNmZquF4PgVCjBtri1QUc9Yahs1_h" target="_blank" rel="noopener noreferrer">
+        <div class="account-card account-douyin">
+          <a class="account-link" href="https://www.douyin.com/user/MS4wLjABAAAAFZsbce8DIQACzZRGW6m5Wi5ExGPeHniIvbDNNmZquF4PgVCjBtri1QUc9Yahs1_h" target="_blank" rel="noopener noreferrer"></a>
           <div class="account-platform">抖音</div>
           <div class="account-header">
             <img class="account-avatar" src="https://aka.doubaocdn.com/s/U3qab7b5ZZ" alt="Balio_头像" />
@@ -1618,10 +1629,11 @@
             <img src="https://aka.doubaocdn.com/s/Xlui3rbQcP" alt="作品" loading="lazy" />
           </div>
           <div class="account-btn">前往抖音主页 →</div>
-        </a>
+        </div>
 
         <!-- 小红书：Balio_ -->
-        <a class="account-card account-xhs" href="https://www.xiaohongshu.com/user/profile/61a75968000000002102234d" target="_blank" rel="noopener noreferrer">
+        <div class="account-card account-xhs">
+          <a class="account-link" href="https://www.xiaohongshu.com/user/profile/61a75968000000002102234d" target="_blank" rel="noopener noreferrer"></a>
           <div class="account-platform">小红书</div>
           <div class="account-header">
             <img class="account-avatar" src="https://aka.doubaocdn.com/s/G7xnZH8kQf" alt="Balio_头像" />
@@ -1639,7 +1651,7 @@
             <img src="https://aka.doubaocdn.com/s/VTCjm0J6JR" alt="笔记" loading="lazy" />
           </div>
           <div class="account-btn">前往小红书主页 →</div>
-        </a>
+        </div>
       </div>
     </section>
 
