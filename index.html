@@ -98,7 +98,13 @@
       gap: 28px;
     }
     .main-grid-top {
+      display: block;
       margin-bottom: 28px;
+    }
+    .main-grid-top .hero-card {
+      grid-column: auto;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .card {
@@ -1350,7 +1356,6 @@
 
     <!-- 数据总览卡 -->
     <section class="card stats-card" id="data" aria-labelledby="stats-title">
-      <div class="card-illustration illu-bright"><img src="https://aka.doubaocdn.com/s/dDbyBRbGgl" alt="" /></div>
       <h2 class="card-title" id="stats-title">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="18" y1="20" x2="18" y2="10"/>
