@@ -86,14 +86,19 @@
     nav a:hover { background: var(--accent); color: #fff; }
 
     /* ===== Bento 网格 ===== */
-    .main-grid {
+    main#top {
       max-width: 1440px;
       margin: 0 auto;
       padding: 0 24px 56px 24px;
+    }
+    .main-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-auto-rows: minmax(220px, auto);
       gap: 28px;
+    }
+    .main-grid-top {
+      margin-bottom: 28px;
     }
 
     .card {
@@ -668,7 +673,10 @@
       .gnb { padding: 20px 28px; }
     }
     @media (max-width: 700px) {
-      .main-grid { grid-template-columns: 1fr; gap: 18px; padding: 0 16px 40px 16px; }
+      main#top { padding: 0 16px 40px 16px; }
+      .main-grid { grid-template-columns: 1fr; gap: 18px; }
+      .main-grid-top { margin-bottom: 18px; }
+      .marquee { margin: 18px 0; padding: 10px 0; }
       .hero-card, .stats-card, .project-1, .project-2,
       .gallery-card, .experience-card, .education-card,
       .skills-card, .contact-card, .socials-card { grid-column: 1; grid-row: auto; }
@@ -871,9 +879,9 @@
 
     /* ===== 跑马灯 ===== */
     .marquee {
-      grid-column: 1 / 4;
       overflow: hidden;
-      padding: 10px 0;
+      padding: 12px 0;
+      margin: 28px 0;
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -882,8 +890,6 @@
       opacity: 0;
       animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.09s forwards;
       line-height: 1;
-      align-self: start;
-      height: fit-content;
     }
     .marquee-track {
       display: flex;
@@ -1122,7 +1128,8 @@
   </header>
 
   <!-- ===== Bento 主网格 ===== -->
-  <main class="main-grid" id="top">
+  <main id="top">
+  <div class="main-grid main-grid-top">
 
     <!-- Hero 卡：标语 + 肖像合并 -->
     <section class="card hero-card" aria-labelledby="slogan-title">
@@ -1141,6 +1148,7 @@
         </div>
       </div>
     </section>
+  </div>
 
     <!-- 跑马灯 -->
     <div class="marquee" aria-hidden="true">
@@ -1179,6 +1187,7 @@
         <span class="marquee-sep">✦</span>
       </div>
     </div>
+  <div class="main-grid">
 
     <!-- 数据总览卡 -->
     <section class="card stats-card" id="data" aria-labelledby="stats-title">
@@ -1406,7 +1415,7 @@
       </div>
       <p class="social-note">直播切片账号获赞 16.7 万 · 安利向账号双平台累计涨粉 160+，点击可查看账号主页</p>
     </section>
-
+  </div>
   </main>
 
   <footer>© 2026 张蓓 · 以内容为笔，用数据说话</footer>
