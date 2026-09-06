@@ -910,9 +910,22 @@
       .stats-card { padding: 28px 24px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .accounts-card { padding: 24px; }
-      .accounts-grid { display: block; }
-      .account-card { padding: 20px 16px 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box; }
+      .accounts-card { padding: 24px; width: 100%; box-sizing: border-box; overflow: hidden; }
+      .accounts-grid { display: block !important; width: 100% !important; overflow: hidden; }
+      .account-card {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        float: none !important;
+        clear: both !important;
+        padding: 20px 16px 16px !important;
+        margin-bottom: 16px !important;
+        box-sizing: border-box !important;
+        transform: translateZ(0);
+      }
       .account-card:last-child { margin-bottom: 0; }
     }
     /* ===== 粒子背景画布 ===== */
