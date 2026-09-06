@@ -439,30 +439,18 @@
       flex: none;
     }
 
-    /* ===== 卡片：我的账号（独立样式，不继承.card） ===== */
+    /* ===== 卡片：我的账号 ===== */
     .accounts-card {
-      position: relative;
-      display: block;
+      grid-column: 1 / 4;
+      display: block !important;
       width: 100%;
-      max-width: 100%;
       box-sizing: border-box;
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 32px;
-      box-shadow: var(--shadow);
-      opacity: 0;
-      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      transition: transform 0.3s, box-shadow 0.3s;
-      margin: 0;
-      overflow: hidden;
     }
     .accounts-grid {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
       margin-top: 20px;
-      padding: 0;
     }
     .account-card {
       display: block;
@@ -737,39 +725,24 @@
     .mail-link:hover { background: var(--accent-deep); color: #fff; transform: translateY(-2px); }
     .mail-link svg { flex: none; }
 
-    /* ===== 卡片：社交（独立样式，不继承.card） ===== */
+    /* ===== 卡片：社交 ===== */
     .socials-card {
-      position: relative;
-      display: block;
+      grid-column: 2 / 4;
+      display: block !important;
       width: 100%;
-      max-width: 100%;
       box-sizing: border-box;
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 32px;
-      box-shadow: var(--shadow);
-      opacity: 0;
-      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      transition: transform 0.3s, box-shadow 0.3s;
-      margin: 0;
-      overflow: hidden;
     }
     .socials {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
     }
     .social-link {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       padding: 12px 16px;
-      margin-bottom: 14px;
       border-radius: 16px;
       background: var(--bg);
       text-decoration: none;
@@ -1750,7 +1723,7 @@
     </section>
 
     <!-- 社交 -->
-    <section class="socials-card" aria-labelledby="socials-title">
+    <section class="card socials-card" aria-labelledby="socials-title">
       <h2 class="card-title" id="socials-title">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="18" cy="5" r="3"/>
@@ -1776,7 +1749,7 @@
     </section>
   </div>
     <!-- 我的账号 -->
-    <section class="accounts-card" id="accounts" aria-labelledby="accounts-title">
+    <section class="card accounts-card" id="accounts" aria-labelledby="accounts-title">
       <h2 class="card-title" id="accounts-title">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
@@ -2383,50 +2356,6 @@
       btn.addEventListener('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
-    })();
-
-    /* ===== 强制卡片等宽（微信兼容性修复） ===== */
-    (function () {
-      function forceEqualWidth() {
-        // 账号卡片
-        var grids = document.querySelectorAll('.accounts-grid');
-        for (var i = 0; i < grids.length; i++) {
-          var grid = grids[i];
-          var gridWidth = grid.offsetWidth;
-          var cards = grid.querySelectorAll('.account-card');
-          for (var j = 0; j < cards.length; j++) {
-            cards[j].style.width = gridWidth + 'px';
-            cards[j].style.maxWidth = gridWidth + 'px';
-            cards[j].style.minWidth = gridWidth + 'px';
-            cards[j].style.display = 'block';
-            cards[j].style.marginLeft = '0';
-            cards[j].style.marginRight = '0';
-            cards[j].style.float = 'none';
-            cards[j].style.boxSizing = 'border-box';
-          }
-        }
-        // 社交按钮
-        var socials = document.querySelectorAll('.socials');
-        for (var k = 0; k < socials.length; k++) {
-          var soc = socials[k];
-          var socWidth = soc.offsetWidth;
-          var links = soc.querySelectorAll('.social-link');
-          for (var m = 0; m < links.length; m++) {
-            links[m].style.width = socWidth + 'px';
-            links[m].style.maxWidth = socWidth + 'px';
-            links[m].style.display = 'block';
-            links[m].style.marginLeft = '0';
-            links[m].style.marginRight = '0';
-            links[m].style.float = 'none';
-            links[m].style.boxSizing = 'border-box';
-          }
-        }
-      }
-      window.addEventListener('load', function () {
-        setTimeout(forceEqualWidth, 300);
-        setTimeout(forceEqualWidth, 1000);
-      });
-      window.addEventListener('resize', forceEqualWidth);
     })();
 
     /* ===== 鼠标跟随文字 ===== */
