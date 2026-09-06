@@ -406,48 +406,6 @@
       flex: none;
     }
 
-    /* ===== 卡片：生活照片墙 ===== */
-    .life-card { grid-column: 1 / 4; }
-    .life-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 110px;
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .life-photo {
-      border-radius: 14px;
-      overflow: hidden;
-      position: relative;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      cursor: pointer;
-    }
-    .life-photo:hover {
-      transform: scale(1.04);
-      box-shadow: 0 8px 24px rgba(232, 139, 127, 0.3);
-    }
-    .life-photo.tall { grid-row: span 2; }
-    .life-photo.wide { grid-column: span 2; }
-    .life-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      opacity: 0.55;
-      transition: transform 0.35s ease;
-    }
-    .life-photo:hover .life-placeholder { transform: scale(1.2); }
-    .life-note {
-      margin: 14px 0 0 0;
-      font-size: 12px;
-      color: var(--ink-soft);
-      opacity: 0.65;
-      text-align: center;
-      letter-spacing: 0.5px;
-    }
-
     /* ===== 卡片：实习经历 ===== */
     .experience-card { grid-column: 1 / 2; }
     .edu-item-head {
@@ -1253,89 +1211,7 @@
     }
     .back-to-top:hover { background: var(--accent); transform: translateY(-3px) scale(1.08); }
 
-    /* ===== 背景音乐播放器 ===== */
-    .music-player {
-      position: fixed;
-      bottom: 24px;
-      left: 24px;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 8px 16px 8px 8px;
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-radius: 50px;
-      box-shadow: 0 4px 24px rgba(232, 139, 127, 0.28);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      max-width: 280px;
-    }
-    .music-player:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232, 139, 127, 0.38); }
-    .mp-disc {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #2F2A28, #4a4240);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      position: relative;
-    }
-    .mp-disc.playing { animation: disc-spin 4s linear infinite; }
-    .mp-disc-inner {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-    @keyframes disc-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    .mp-info { flex: 1; min-width: 0; }
-    .mp-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--ink);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-bottom: 5px;
-      letter-spacing: 0.3px;
-    }
-    .mp-progress {
-      height: 3px;
-      background: rgba(232, 139, 127, 0.2);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .mp-bar {
-      height: 100%;
-      width: 0%;
-      background: var(--accent-deep);
-      border-radius: 2px;
-      transition: width 0.3s linear;
-    }
-    .mp-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: none;
-      background: var(--accent-deep);
-      color: white;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-    .mp-btn:hover { transform: scale(1.12); background: var(--accent); }
-
     @media (max-width: 700px) {
-      .music-player { left: 12px; bottom: 12px; max-width: 220px; padding: 6px 12px 6px 6px; gap: 8px; }
-      .mp-disc { width: 34px; height: 34px; }
-      .mp-disc-inner { width: 12px; height: 12px; }
-      .mp-btn { width: 32px; height: 32px; }
       .back-to-top { right: 12px; bottom: 12px; width: 40px; height: 40px; }
     }
   </style>
@@ -1534,25 +1410,6 @@
         <button class="filter-btn" data-filter="xhs">小红书</button>
       </div>
       <div class="gallery-grid" id="gallery-grid"><!-- JS 渲染 --></div>
-    </section>
-
-    <!-- 生活照片墙 -->
-    <section class="card life-card" id="life" aria-labelledby="life-title">
-      <h2 class="card-title" id="life-title">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
-          <circle cx="12" cy="13" r="3"/>
-        </svg>
-        日常碎片
-      </h2>
-      <div class="life-grid">
-        <div class="life-photo tall" style="background: linear-gradient(135deg, #FADCD9, #F8AFA6);"><span class="life-placeholder">📷</span></div>
-        <div class="life-photo wide" style="background: linear-gradient(135deg, #F9F1F0, #FADCD9);"><span class="life-placeholder">🎵</span></div>
-        <div class="life-photo" style="background: linear-gradient(135deg, #F8AFA6, #E88B7F);"><span class="life-placeholder">✈️</span></div>
-        <div class="life-photo" style="background: linear-gradient(135deg, #FADCD9, #F9F1F0);"><span class="life-placeholder">🎤</span></div>
-        <div class="life-photo wide" style="background: linear-gradient(135deg, #F8AFA6, #FADCD9);"><span class="life-placeholder">💜</span></div>
-      </div>
-      <p class="life-note">占位图 · 替换为你的生活照 / 旅行照 / 追星现场照</p>
     </section>
 
     <!-- 实习经历 -->
@@ -2221,36 +2078,6 @@
       });
     })();
 
-    /* ===== 背景音乐播放器 ===== */
-    (function () {
-      var btn = document.getElementById('mpBtn');
-      var music = document.getElementById('bgMusic');
-      var disc = document.getElementById('mpDisc');
-      var bar = document.getElementById('mpBar');
-      var iconPlay = btn.querySelector('.mp-icon-play');
-      var iconPause = btn.querySelector('.mp-icon-pause');
-      if (!btn || !music) return;
-      var playing = false;
-      btn.addEventListener('click', function () {
-        if (playing) {
-          music.pause();
-          disc.classList.remove('playing');
-          iconPlay.style.display = '';
-          iconPause.style.display = 'none';
-        } else {
-          var p = music.play();
-          if (p && p.catch) { p.catch(function () { /* 自动播放被阻止，用户再点一次即可 */ }); }
-          disc.classList.add('playing');
-          iconPlay.style.display = 'none';
-          iconPause.style.display = '';
-        }
-        playing = !playing;
-      });
-      music.addEventListener('timeupdate', function () {
-        if (music.duration) { bar.style.width = (music.currentTime / music.duration * 100) + '%'; }
-      });
-    })();
-
     /* ===== 鼠标跟随文字 ===== */
     (function () {
       if (window.matchMedia('(hover: none)').matches) return;
@@ -2289,22 +2116,6 @@
   <button class="back-to-top" id="backToTop" aria-label="回到顶部">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
   </button>
-
-  <!-- 背景音乐播放器 -->
-  <div class="music-player" id="musicPlayer">
-    <div class="mp-disc" id="mpDisc"><div class="mp-disc-inner"></div></div>
-    <div class="mp-info">
-      <div class="mp-title">Sunny · 背景音乐</div>
-      <div class="mp-progress"><div class="mp-bar" id="mpBar"></div></div>
-    </div>
-    <button class="mp-btn" id="mpBtn" aria-label="播放/暂停">
-      <svg class="mp-icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      <svg class="mp-icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-    </button>
-    <audio id="bgMusic" loop preload="none">
-      <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
-    </audio>
-  </div>
 
 </body>
 </html>
