@@ -903,8 +903,9 @@
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .accounts-card { padding: 24px; }
-      .accounts-grid { grid-template-columns: 1fr; gap: 16px; }
-      .account-card { padding: 20px 16px 16px; }
+      .accounts-grid { display: block; }
+      .account-card { padding: 20px 16px 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box; }
+      .account-card:last-child { margin-bottom: 0; }
     }
     /* ===== 粒子背景画布 ===== */
     #particle-bg {
