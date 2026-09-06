@@ -2348,6 +2348,50 @@
       });
     })();
 
+    /* ===== 强制卡片等宽（微信兼容性修复） ===== */
+    (function () {
+      function forceEqualWidth() {
+        // 账号卡片
+        var grids = document.querySelectorAll('.accounts-grid');
+        for (var i = 0; i < grids.length; i++) {
+          var grid = grids[i];
+          var gridWidth = grid.offsetWidth;
+          var cards = grid.querySelectorAll('.account-card');
+          for (var j = 0; j < cards.length; j++) {
+            cards[j].style.width = gridWidth + 'px';
+            cards[j].style.maxWidth = gridWidth + 'px';
+            cards[j].style.minWidth = gridWidth + 'px';
+            cards[j].style.display = 'block';
+            cards[j].style.marginLeft = '0';
+            cards[j].style.marginRight = '0';
+            cards[j].style.float = 'none';
+            cards[j].style.boxSizing = 'border-box';
+          }
+        }
+        // 社交按钮
+        var socials = document.querySelectorAll('.socials');
+        for (var k = 0; k < socials.length; k++) {
+          var soc = socials[k];
+          var socWidth = soc.offsetWidth;
+          var links = soc.querySelectorAll('.social-link');
+          for (var m = 0; m < links.length; m++) {
+            links[m].style.width = socWidth + 'px';
+            links[m].style.maxWidth = socWidth + 'px';
+            links[m].style.display = 'block';
+            links[m].style.marginLeft = '0';
+            links[m].style.marginRight = '0';
+            links[m].style.float = 'none';
+            links[m].style.boxSizing = 'border-box';
+          }
+        }
+      }
+      window.addEventListener('load', function () {
+        setTimeout(forceEqualWidth, 300);
+        setTimeout(forceEqualWidth, 1000);
+      });
+      window.addEventListener('resize', forceEqualWidth);
+    })();
+
     /* ===== 鼠标跟随文字 ===== */
     (function () {
       if (window.matchMedia('(hover: none)').matches) return;
